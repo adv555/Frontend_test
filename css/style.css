@@ -2,7 +2,93 @@
   margin: 0;
   padding: 0;
 } */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #2a2a2a;
+}
+
+.list {
+  padding: 20px;
+  margin: 0;
+  list-style: none;
+}
+
+.list-item:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.list-link {
+  display: inline-flex;
+  align-items: center;
+  color: currentColor;
+  text-decoration: none;
+  font-size: 32px;
+}
+
+/* Менять тип не обязательно, потому что это flex-элемент, ссылка это flex-контейнер */
+.list-link::before,
+.list-link::after {
+  display: inline-block;
+  content: '';
+  width: 24px;
+  height: 24px;
+}
+
+/* Добавляем иконку огня перед текстом ссылки */
+.list-link::before {
+  margin-right: 16px;
+  background-image: url('https://image.flaticon.com/icons/svg/785/785116.svg');
+}
+
+/* Добавляем и прячем иконку кота после текста ссылки */
+.list-link::after {
+  display: none;
+  margin-left: 16px;
+  background-image: url('https://image.flaticon.com/icons/svg/616/616430.svg');
+}
+
+.list-link:hover {
+  color: #2196f3;
+}
+
+/* Показываем иконку кота при ховере по ссылке */
+.list-link:hover::after {
+  display: block;
+}
+
+/* .list-link::before,
+.list-link::after {
+  content: '';
+  display: inline-block
+  width: 24px;
+  height: 24px;
+} */
 
 p {
   color: rebeccapurple;
+}
+.box::before {
+  content: 'Это текст в ::before';
+  font-size: 40px;
+  color: orange;
+}
+
+.box::after {
+  content: 'Это текст в ::after';
+  font-size: 30px;
+  color: teal;
+}
+/* Применить стили к псевдоэлементу .box::before при ховере по элементу .box */
+.box:hover::before {
+  color: green;
+}
+
+/* Применить стили к псевдоэлементу .box::after при ховере по элементу .box */
+.box:hover::after {
+  color: tomato;
 }
